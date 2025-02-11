@@ -88,17 +88,3 @@ def save_to_db(df):
     conn.commit()
     conn.close()
     print("Data saved to SQLite database!")
-
-if __name__ == "__main__":
-    cities = ["İstanbul", "Ankara", "İzmir", "Antalya", "Şanlıurfa", "Samsun", "Van"]
-
-    create_db()
-
-    for city in cities:
-        print(f"Fetching weather data for {city}...")
-
-        weather_data = fetch_weather(city)
-        df = transform_weather(weather_data)
-
-        if df is not None:
-            save_to_db(df)
